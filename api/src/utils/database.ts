@@ -1,9 +1,14 @@
-import mongoose from "mongoose";
+import mongoose, { ConnectionOptions } from "mongoose";
 import { MongoMemoryServer } from "mongodb-memory-server";
+import postModel from "api/post/post.model";
 
 const mongoMemoryServer = new MongoMemoryServer();
 const { USERNAME, PASSWORD } = process.env;
-const options = { useNewUrlParser: true, useUnifiedTopology: true };
+const options: ConnectionOptions = {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useFindAndModify: false
+};
 
 async function getConnectionString(isUsingMemory?: boolean) {
   return isUsingMemory
@@ -22,4 +27,10 @@ export async function closeDB(isUsingMemory?: boolean) {
   if (isUsingMemory) await mongoMemoryServer.stop();
 }
 
-export async function mockingDatabaseRecord() {}
+export function clearDB() {
+  return mongoose.connection.db.dropDatabase();
+}
+
+export async function mockingDatabaseRecord() {
+  await postModel.create({ content: "hello world" });
+}
