@@ -28,7 +28,7 @@ export type Post = {
   content: string;
 };
 
-type PostRequest = {
+export type PostRequest = {
   content: string;
 };
 

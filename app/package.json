@@ -10,12 +10,21 @@
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
   },
   "dependencies": {
-    "@ant-design/icons-react-native": "^2.2.1",
-    "@ant-design/react-native": "^3.3.0",
+    "@eva-design/eva": "^2.0.0",
+    "@react-native-community/masked-view": "^0.1.10",
+    "@react-navigation/material-top-tabs": "^5.2.9",
+    "@react-navigation/native": "^5.5.0",
+    "@ui-kitten/components": "^5.0.0",
+    "@ui-kitten/eva-icons": "^5.0.0",
     "axios": "^0.19.2",
-    "dotenv": "^8.2.0",
     "react": "16.11.0",
     "react-native": "0.62.2",
+    "react-native-gesture-handler": "^1.6.1",
+    "react-native-reanimated": "^1.9.0",
+    "react-native-safe-area-context": "^3.0.2",
+    "react-native-screens": "^2.8.0",
+    "react-native-svg": "^12.1.0",
+    "react-native-tab-view": "^2.14.2",
     "typesafe-actions": "^5.1.0"
   },
   "devDependencies": {
@@ -25,6 +34,7 @@
     "@types/jest": "^24.0.24",
     "@types/node": "^14.0.5",
     "@types/react-native": "^0.62.0",
+    "@types/react-native-dotenv": "^0.2.0",
     "@types/react-test-renderer": "16.9.2",
     "@typescript-eslint/eslint-plugin": "^2.27.0",
     "@typescript-eslint/parser": "^2.27.0",
@@ -33,6 +43,7 @@
     "jest": "^24.9.0",
     "metro-react-native-babel-preset": "^0.58.0",
     "prettier": "^2.0.4",
+    "react-native-dotenv": "^0.2.0",
     "react-test-renderer": "16.11.0",
     "typescript": "^3.8.3"
   },

@@ -18,7 +18,7 @@ import {
   clearSelectedAction
 } from "./postActions";
 
-const usePostActions = () => {
+const usePostAction = () => {
   const storeContext = useStoreContext();
 
   const getRequest = React.useCallback(() => {
@@ -116,4 +116,4 @@ const usePostActions = () => {
   };
 };
 
-export default usePostActions;
+export default usePostAction;
