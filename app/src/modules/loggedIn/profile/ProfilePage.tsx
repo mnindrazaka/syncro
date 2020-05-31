@@ -1,6 +1,6 @@
 import React from "react";
 import { View, Alert } from "react-native";
-import { Button, Icon, Text, Card } from "@ui-kitten/components";
+import { Button, Icon, Text, Card, Spinner } from "@ui-kitten/components";
 import useUserState from "../../../stores/user/useUserState";
 import useUserAction from "../../../stores/user/useUserAction";
 import tokenStorage from "../../../stores/user/tokenStorage";
@@ -31,7 +31,12 @@ const ProfilePage = () => {
       <Card
         footer={props => (
           <View {...props}>
-            <Button status="danger" onPress={handleLogout} appearance="outline">
+            <Button
+              status="danger"
+              onPress={handleLogout}
+              appearance="outline"
+              accessoryLeft={userState.loading ? () => <Spinner /> : undefined}
+            >
               Logout
             </Button>
           </View>

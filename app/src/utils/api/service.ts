@@ -1,4 +1,5 @@
 import axios, { AxiosRequestConfig } from "axios";
+import tokenStorage from "../../stores/user/tokenStorage";
 
 export default class Service {
   baseURL: string;
@@ -7,10 +8,11 @@ export default class Service {
     this.baseURL = baseURL;
   }
 
-  private getConfig(): AxiosRequestConfig {
+  private async getConfig(): Promise<AxiosRequestConfig> {
+    const token = await tokenStorage.getToken();
     return {
       headers: {
-        authorization: undefined
+        authorization: token ? `Bearer ${token}` : undefined
       }
     };
   }
@@ -18,10 +20,8 @@ export default class Service {
   public get<T>(endpoint: string) {
     return new Promise<T>(async (resolve, reject) => {
       try {
-        const response = await axios.get(
-          this.baseURL + endpoint,
-          this.getConfig()
-        );
+        const config = await this.getConfig();
+        const response = await axios.get(this.baseURL + endpoint, config);
         resolve(response.data);
       } catch (error) {
         if (error.response) reject(error.response.data);
@@ -33,10 +33,11 @@ export default class Service {
   public post<T>(endpoint: string, data: any) {
     return new Promise<T>(async (resolve, reject) => {
       try {
+        const config = await this.getConfig();
         const response = await axios.post(
           this.baseURL + endpoint,
           data,
-          this.getConfig()
+          config
         );
         resolve(response.data);
       } catch (error) {
@@ -49,11 +50,8 @@ export default class Service {
   public put<T>(endpoint: string, data: any) {
     return new Promise<T>(async (resolve, reject) => {
       try {
-        const response = await axios.put(
-          this.baseURL + endpoint,
-          data,
-          this.getConfig()
-        );
+        const config = await this.getConfig();
+        const response = await axios.put(this.baseURL + endpoint, data, config);
         resolve(response.data);
       } catch (error) {
         if (error.response) reject(error.response.data);
@@ -65,10 +63,8 @@ export default class Service {
   public delete<T>(endpoint: string) {
     return new Promise<T>(async (resolve, reject) => {
       try {
-        const response = await axios.delete(
-          this.baseURL + endpoint,
-          this.getConfig()
-        );
+        const config = await this.getConfig();
+        const response = await axios.delete(this.baseURL + endpoint, config);
         resolve(response.data);
       } catch (error) {
         if (error.response) reject(error.response.data);

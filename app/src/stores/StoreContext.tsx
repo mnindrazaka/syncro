@@ -37,6 +37,10 @@ export const useStore = (): {
     })();
   }, []);
 
+  React.useEffect(() => {
+    setUser(state.user.selected);
+  }, [state.user.selected]);
+
   return {
     state: { ...state, user: { ...state.user, selected: user } },
     dispatch
