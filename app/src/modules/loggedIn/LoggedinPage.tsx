@@ -16,6 +16,7 @@ import {
 } from "@react-navigation/material-top-tabs";
 import { View } from "react-native";
 import PostPage from "./post/PostPage";
+import ProfilePage from "./profile/ProfilePage";
 
 const { Navigator, Screen } = createMaterialTopTabNavigator();
 
@@ -28,10 +29,6 @@ const TopTabBar = (props: MaterialTopTabBarProps) => (
     <Tab icon={props => <Icon name="person-outline" {...props} />} />
   </TabBar>
 );
-
-const Profile = () => {
-  return <Text>Profile</Text>;
-};
 
 const LoggedinPage = () => {
   return (
@@ -55,7 +52,7 @@ const LoggedinPage = () => {
       </View>
       <Navigator tabBar={props => <TopTabBar {...props} />}>
         <Screen name="home" component={PostPage} />
-        <Screen name="profile" component={Profile} />
+        <Screen name="profile" component={ProfilePage} />
       </Navigator>
     </>
   );

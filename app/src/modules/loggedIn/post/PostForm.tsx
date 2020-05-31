@@ -18,7 +18,7 @@ const PostForm = () => {
       setContent("");
     } catch (e) {
       postAction.createError(e.message);
-      Alert.alert("Something when wrong", e.message);
+      Alert.alert("Post creation failed", e.message);
     }
   }, [postAction]);
 

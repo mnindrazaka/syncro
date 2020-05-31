@@ -55,8 +55,8 @@ export const registerRequestAction = () => {
   return action(UserAction.RegisterRequest);
 };
 
-export const registerSuccessAction = (user: User) => {
-  return action(UserAction.RegisterSuccess, user);
+export const registerSuccessAction = () => {
+  return action(UserAction.RegisterSuccess);
 };
 
 export const registerErrorAction = (message: string) => {

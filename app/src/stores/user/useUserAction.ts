@@ -36,12 +36,9 @@ const useUserAction = () => {
   const registerRequest = React.useCallback(() => {
     storeContext.dispatch(registerRequestAction());
   }, [storeContext]);
-  const registerSuccess = React.useCallback(
-    (user: User) => {
-      storeContext.dispatch(registerSuccessAction(user));
-    },
-    [storeContext]
-  );
+  const registerSuccess = React.useCallback(() => {
+    storeContext.dispatch(registerSuccessAction());
+  }, [storeContext]);
   const registerError = React.useCallback(
     (message: string) => {
       storeContext.dispatch(registerErrorAction(message));

@@ -18,7 +18,7 @@ const PostList = () => {
         postAction.getSuccess(posts);
       } catch (err) {
         postAction.getError(err.message);
-        Alert.alert("Something when wrong", err.message);
+        Alert.alert("Unable to fetch post", err.message);
       }
     })();
   }, []);
