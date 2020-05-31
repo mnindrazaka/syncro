@@ -1,5 +1,6 @@
 import React from "react";
 import storeStateAndReducers, { StoreState } from "./storeReducers";
+import { userInitialState } from "./user/userReducers";
 import { postInitialState } from "./post/postReducers";
 
 export type Action<T = any> = {
@@ -14,6 +15,7 @@ type StoreContextValue = {
 
 const StoreContext = React.createContext<StoreContextValue>({
   state: {
+    user: userInitialState,
     post: postInitialState
   },
   dispatch: () => {}
