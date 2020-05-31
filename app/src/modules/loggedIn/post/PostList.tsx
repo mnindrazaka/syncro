@@ -1,7 +1,7 @@
 import React from "react";
-import usePostState from "../../stores/post/usePostState";
-import usePostAction from "../../stores/post/usePostAction";
-import sosmedService from "../../utils/api/sosmedService";
+import usePostState from "../../../stores/post/usePostState";
+import usePostAction from "../../../stores/post/usePostAction";
+import sosmedService from "../../../utils/api/sosmedService";
 import { Alert, View, ScrollView } from "react-native";
 import PostCard from "./PostCard";
 import { Spinner } from "@ui-kitten/components";
@@ -18,7 +18,7 @@ const PostList = () => {
         postAction.getSuccess(posts);
       } catch (err) {
         postAction.getError(err.message);
-        Alert.alert("Something when wrong", err.message);
+        Alert.alert("Unable to fetch post", err.message);
       }
     })();
   }, []);

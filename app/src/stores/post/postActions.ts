@@ -1,4 +1,5 @@
 import { action } from "typesafe-actions";
+import { User } from "../user/userActions";
 
 export enum PostAction {
   GetRequest = "@@POST/GET_REQUEST",
@@ -26,6 +27,7 @@ export type Post = {
   createdAt: string;
   updatedAt: string;
   content: string;
+  user: User;
 };
 
 export type PostRequest = {
