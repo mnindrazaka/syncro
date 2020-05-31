@@ -1,6 +1,6 @@
 import React from "react";
 import { View } from "react-native";
-import { Post } from "../../stores/post/postActions";
+import { Post } from "../../../stores/post/postActions";
 import { Text } from "@ui-kitten/components";
 
 const PostCard = (props: { post: Post }) => {
