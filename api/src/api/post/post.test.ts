@@ -32,11 +32,12 @@ describe("post", () => {
   afterAll(async () => await closeDB(true));
 
   it("can throw error if request not authenticated", async () => {
-    const geAllPostResponse = await request.get("/post").send();
-    expect(geAllPostResponse.body).to.has.property("status").equal("error");
-    expect(geAllPostResponse.body)
-      .to.has.property("message")
-      .equal("authentication token not found");
+    const getAllPostResponse = await request.get("/post").send();
+    expect(getAllPostResponse.body).to.deep.equal({
+      status: "error",
+      statusCode: 403,
+      message: "authentication token not found"
+    });
   });
 
   it("can get all post", async () => {
@@ -89,10 +90,11 @@ describe("post", () => {
       .put(`/post/${postId}`)
       .set("authorization", `Bearer ${token}`)
       .send({ content: "lorem ipsum" });
-    expect(editPostResponse.body).to.has.property("statusCode").that.equal(400);
-    expect(editPostResponse.body)
-      .to.has.property("message")
-      .that.equal("post not found");
+    expect(editPostResponse.body).to.deep.equal({
+      status: "error",
+      statusCode: 400,
+      message: "post not found"
+    });
   });
 
   it("can delete post", async () => {
@@ -123,9 +125,10 @@ describe("post", () => {
       .delete(`/post/${postId}`)
       .set("authorization", `Bearer ${token}`)
       .send({ content: "lorem ipsum" });
-    expect(editPostResponse.body).to.has.property("statusCode").that.equal(400);
-    expect(editPostResponse.body)
-      .to.has.property("message")
-      .that.equal("post not found");
+    expect(editPostResponse.body).to.deep.equal({
+      status: "error",
+      statusCode: 400,
+      message: "post not found"
+    });
   });
 });
