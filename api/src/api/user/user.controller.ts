@@ -16,9 +16,8 @@ export default class UserController {
 
   authenticate = async (req: Request, res: Response, next: NextFunction) => {
     try {
-      const { name, username, password } = req.body;
+      const { username, password } = req.body;
       const token = await userService.authenticateUser({
-        name,
         username,
         password
       });
