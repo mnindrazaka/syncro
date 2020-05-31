@@ -5,4 +5,4 @@ const usePostState = () => {
   return storeContext.state.post;
 };
 
-export default usePostState();
+export default usePostState;
