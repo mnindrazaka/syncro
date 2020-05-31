@@ -1,4 +1,4 @@
-import { UserRequest } from "./user.type";
+import { UserRegisterRequest, UserLoginRequest } from "./user.type";
 import userModel, { UserDocument } from "./user.model";
 import userUtil from "./user.util";
 import jwt from "jsonwebtoken";
@@ -9,7 +9,7 @@ export default class UserService {
     return userModel.findOne({ username });
   };
 
-  createUser = (user: UserRequest) => {
+  createUser = (user: UserRegisterRequest) => {
     return new Promise<UserDocument>(async (resolve, reject) => {
       try {
         const existingUser = await this.getUserByUsername(user.username);
@@ -30,7 +30,7 @@ export default class UserService {
     });
   };
 
-  authenticateUser = (user: UserRequest) => {
+  authenticateUser = (user: UserLoginRequest) => {
     return new Promise<string>(async (resolve, reject) => {
       try {
         const userDocument = await userModel.findOne({
@@ -47,7 +47,7 @@ export default class UserService {
           throw new HttpException(401, "username or password wrong");
 
         const token = jwt.sign(
-          { name: user.name, username: user.username },
+          { name: userDocument.name, username: userDocument.username },
           process.env.JWT_SECRET || ""
         );
         resolve(token);

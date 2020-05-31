@@ -4,4 +4,13 @@ export interface User {
   password: string;
 }
 
-export type UserRequest = User;
+export interface UserRegisterRequest {
+  name: string;
+  username: string;
+  password: string;
+}
+
+export interface UserLoginRequest {
+  username: string;
+  password: string;
+}

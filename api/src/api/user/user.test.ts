@@ -8,6 +8,7 @@ import {
   closeDB,
   clearDB
 } from "utils/database";
+import jwt from "jsonwebtoken";
 
 process.env.JWT_SECRET = "secret";
 const request = supertest(app);
@@ -22,30 +23,31 @@ describe("user", () => {
 
   afterAll(async () => await closeDB(true));
 
-  it("can create user", async () => {
-    const createUserResponse = await request
+  it("can register user", async () => {
+    const registerUserResponse = await request
       .post("/user")
       .send({ name: "budi budiman", username: "budiman", password: "budiman" });
-    expect(createUserResponse.body).to.has.property("_id");
-    expect(createUserResponse.body)
+    expect(registerUserResponse.body).to.has.property("_id");
+    expect(registerUserResponse.body)
       .to.has.property("name")
       .equal("budi budiman");
-    expect(createUserResponse.body)
+    expect(registerUserResponse.body)
       .to.has.property("username")
       .equal("budiman");
-    expect(createUserResponse.body)
+    expect(registerUserResponse.body)
       .to.has.property("password")
       .not.equal("budiman");
   });
 
   it("can prevent duplicate username", async () => {
-    const createUserResponse = await request
+    const registerUserResponse = await request
       .post("/user")
       .send({ username: "mnindrazaka", password: "mnindrazaka" });
-    expect(createUserResponse.body).to.has.property("status").equal("error");
-    expect(createUserResponse.body)
-      .to.has.property("message")
-      .equal("username already exist");
+    expect(registerUserResponse.body).to.deep.equal({
+      status: "error",
+      statusCode: 401,
+      message: "username already exist"
+    });
   });
 
   it("can authenticate user", async () => {
@@ -53,15 +55,23 @@ describe("user", () => {
       .post("/user/authenticate")
       .send({ username: "mnindrazaka", password: "mnindrazaka" });
     expect(authenticateResponse.body).to.has.property("token");
+
+    const { token } = authenticateResponse.body;
+    const user = jwt.decode(token);
+    expect(user).to.include({
+      name: "m. mindra zaka",
+      username: "mnindrazaka"
+    });
   });
 
   it("can show error message if username or password wrong", async () => {
     const authenticateResponse = await request
       .post("/user/authenticate")
       .send({ username: "mnindrazaka2", password: "mnindrazaka2" });
-    expect(authenticateResponse.body).to.has.property("status").equal("error");
-    expect(authenticateResponse.body)
-      .to.has.property("message")
-      .equal("username or password wrong");
+    expect(authenticateResponse.body).to.deep.equal({
+      status: "error",
+      statusCode: 401,
+      message: "username or password wrong"
+    });
   });
 });
