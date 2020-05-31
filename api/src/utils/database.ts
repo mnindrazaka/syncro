@@ -1,6 +1,8 @@
 import mongoose, { ConnectionOptions } from "mongoose";
 import { MongoMemoryServer } from "mongodb-memory-server";
 import postModel from "api/post/post.model";
+import userModel from "api/user/user.model";
+import userUtil from "api/user/user.util";
 
 const mongoMemoryServer = new MongoMemoryServer();
 const { USERNAME, PASSWORD } = process.env;
@@ -33,4 +35,11 @@ export function clearDB() {
 
 export async function mockingDatabaseRecord() {
   await postModel.create({ content: "hello world" });
+
+  const passwordHash = await userUtil.hash("mnindrazaka");
+  await userModel.create({
+    name: "m. mindra zaka",
+    username: "mnindrazaka",
+    password: passwordHash
+  });
 }
