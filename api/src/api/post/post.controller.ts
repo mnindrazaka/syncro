@@ -1,4 +1,5 @@
-import { Request, Response, NextFunction } from "express";
+import { Response, NextFunction } from "express";
+import { Request } from "../type";
 import HttpException from "utils/httpException";
 import PostService from "./post.service";
 import { PostRequest } from "./post.type";
@@ -17,8 +18,9 @@ export default class PostController {
 
   store = async (req: Request, res: Response, next: NextFunction) => {
     try {
+      const userId = req.user._id;
       const postRequest: PostRequest = req.body;
-      const post = await postService.createPost(postRequest);
+      const post = await postService.createPost(userId, postRequest);
       res.send(post);
     } catch (error) {
       next(new HttpException(error.statusCode || 500, error.message));

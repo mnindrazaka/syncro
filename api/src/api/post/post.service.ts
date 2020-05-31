@@ -7,7 +7,7 @@ export default class PostService {
     return postModel.find();
   };
 
-  createPost = (postRequest: PostRequest) => {
+  createPost = (userId: string, postRequest: PostRequest) => {
     return postModel.create(postRequest);
   };
 
