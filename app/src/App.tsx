@@ -24,9 +24,9 @@ import {
   createMaterialTopTabNavigator,
   MaterialTopTabBarProps
 } from "@react-navigation/material-top-tabs";
-import PostForm from "./modules/post/PostForm";
 import { View } from "react-native";
 import { StoreProvider } from "./stores/StoreContext";
+import PostPage from "./modules/post/PostPage";
 
 const { Navigator, Screen } = createMaterialTopTabNavigator();
 
@@ -39,6 +39,10 @@ const TopTabBar = (props: MaterialTopTabBarProps) => (
     <Tab icon={props => <Icon name="person-outline" {...props} />} />
   </TabBar>
 );
+
+const Profile = () => {
+  return <Text>Profile</Text>;
+};
 
 const App = () => {
   return (
@@ -65,8 +69,8 @@ const App = () => {
           </View>
           <NavigationContainer>
             <Navigator tabBar={props => <TopTabBar {...props} />}>
-              <Screen name="home" component={PostForm} />
-              <Screen name="profile" component={PostForm} />
+              <Screen name="home" component={PostPage} />
+              <Screen name="profile" component={Profile} />
             </Navigator>
           </NavigationContainer>
         </StoreProvider>

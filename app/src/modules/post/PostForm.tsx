@@ -23,7 +23,7 @@ const PostForm = () => {
   }, [postAction]);
 
   return (
-    <View style={{ padding: 8, marginVertical: 16, backgroundColor: "#fff" }}>
+    <View style={{ padding: 8, backgroundColor: "#fff" }}>
       <Input
         value={content}
         onChangeText={setContent}
