@@ -47,7 +47,7 @@ export default class UserService {
           throw new HttpException(401, "username or password wrong");
 
         const token = jwt.sign(
-          { username: user.username },
+          { name: user.name, username: user.username },
           process.env.JWT_SECRET || ""
         );
         resolve(token);
