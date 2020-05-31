@@ -15,7 +15,7 @@ const options: ConnectionOptions = {
 async function getConnectionString(isUsingMemory?: boolean) {
   return isUsingMemory
     ? await mongoMemoryServer.getConnectionString()
-    : `mongodb+srv://${USERNAME}:${PASSWORD}@cluster0-uzclu.mongodb.net/main?retryWrites=true&w=majority`;
+    : `mongodb+srv://${USERNAME}:${PASSWORD}@cluster0-jzjxc.mongodb.net/test?retryWrites=true&w=majority`;
 }
 
 export async function connectDB(isUsingMemory?: boolean) {
