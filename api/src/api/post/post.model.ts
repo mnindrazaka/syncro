@@ -5,7 +5,11 @@ export type PostDocument = Post & Document;
 
 const postSchema = new Schema(
   {
-    content: String
+    content: String,
+    user: {
+      type: Schema.Types.ObjectId,
+      ref: "User"
+    }
   },
   { timestamps: true }
 );

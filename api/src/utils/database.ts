@@ -34,12 +34,12 @@ export function clearDB() {
 }
 
 export async function mockingDatabaseRecord() {
-  await postModel.create({ content: "hello world" });
-
   const passwordHash = await userUtil.hash("mnindrazaka");
-  await userModel.create({
+  const user = await userModel.create({
     name: "m. mindra zaka",
     username: "mnindrazaka",
     password: passwordHash
   });
+
+  await postModel.create({ content: "hello world", user: user._id });
 }
