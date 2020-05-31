@@ -4,11 +4,11 @@ import HttpException from "utils/httpException";
 
 export default class PostService {
   getAllPost = () => {
-    return postModel.find();
+    return postModel.find().populate("user").sort({ _id: -1 });
   };
 
   createPost = (userId: string, postRequest: PostRequest) => {
-    return postModel.create(postRequest);
+    return postModel.create({ ...postRequest, user: userId });
   };
 
   updatePost = (postId: string, postRequest: PostRequest) => {
