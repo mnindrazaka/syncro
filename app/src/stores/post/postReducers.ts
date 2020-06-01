@@ -95,9 +95,9 @@ const errorReducer: React.Reducer<PostState["error"], Action> = (
   }
 };
 
-export default combineReducers<PostState>({
-  items: [itemsReducer, postInitialState["items"]],
-  selected: [selectedReducer, postInitialState["selected"]],
-  loading: [loadingReducer, postInitialState["loading"]],
-  error: [errorReducer, postInitialState["error"]]
+export const postReducer = combineReducers<PostState>({
+  items: itemsReducer,
+  selected: selectedReducer,
+  loading: loadingReducer,
+  error: errorReducer
 });
