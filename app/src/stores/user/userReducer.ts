@@ -1,5 +1,5 @@
 import React from "react";
-import { UserLoginResponse, UserAction } from "./userActions";
+import { UserLoginResponse, UserAction } from "./userAction";
 import { Action } from "../StoreContext";
 import { combineReducers } from "../combineReducers";
 

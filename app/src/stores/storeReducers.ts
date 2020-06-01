@@ -1,6 +1,6 @@
 import { combineReducers } from "./combineReducers";
-import { UserState, userReducer, userInitialState } from "./user/userReducers";
-import { PostState, postReducer, postInitialState } from "./post/postReducers";
+import { UserState, userReducer, userInitialState } from "./user/userReducer";
+import { PostState, postReducer, postInitialState } from "./post/postReducer";
 
 export type StoreState = {
   user: UserState;

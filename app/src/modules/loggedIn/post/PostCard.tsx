@@ -1,6 +1,6 @@
 import React from "react";
 import { View } from "react-native";
-import { Post } from "../../../stores/post/postActions";
+import { Post } from "../../../stores/post/postAction";
 import { Text, Icon } from "@ui-kitten/components";
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";

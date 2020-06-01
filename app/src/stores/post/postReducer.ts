@@ -1,5 +1,5 @@
 import React from "react";
-import { Post, PostAction } from "./postActions";
+import { Post, PostAction } from "./postAction";
 import { Action } from "../StoreContext";
 import { combineReducers } from "../combineReducers";
 

@@ -1,6 +1,6 @@
 import AsyncStorage from "@react-native-community/async-storage";
 import jwtDecode from "jwt-decode";
-import { UserLoginResponse } from "./userActions";
+import { UserLoginResponse } from "./userAction";
 
 const key = "token";
 

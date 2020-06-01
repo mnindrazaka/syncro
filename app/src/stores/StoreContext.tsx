@@ -1,7 +1,7 @@
 import React from "react";
 import { StoreState, storeReducer, storeInitialState } from "./storeReducers";
 import tokenStorage from "./user/tokenStorage";
-import { loginSuccessAction, UserLoginResponse } from "./user/userActions";
+import { loginSuccessAction, UserLoginResponse } from "./user/userAction";
 
 export type Action<T = any> = {
   type: string;
