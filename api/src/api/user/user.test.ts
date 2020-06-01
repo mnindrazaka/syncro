@@ -59,7 +59,7 @@ describe("user", () => {
     const { token } = authenticateResponse.body;
     const user = jwt.decode(token);
     expect(user).to.include({
-      name: "m. mindra zaka",
+      name: "m. nindra zaka",
       username: "mnindrazaka"
     });
   });

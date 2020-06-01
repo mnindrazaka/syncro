@@ -61,6 +61,10 @@ describe("post", () => {
     expect(createPostResponse.body)
       .to.has.property("content")
       .that.equal("hello world 2");
+    expect(createPostResponse.body.user).to.include({
+      name: "m. nindra zaka",
+      username: "mnindrazaka"
+    });
   });
 
   it("can edit post", async () => {

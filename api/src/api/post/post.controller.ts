@@ -18,9 +18,9 @@ export default class PostController {
 
   store = async (req: Request, res: Response, next: NextFunction) => {
     try {
-      const userId = req.user._id;
+      const user = req.user;
       const postRequest: PostRequest = req.body;
-      const post = await postService.createPost(userId, postRequest);
+      const post = await postService.createPost(user._id, postRequest);
       res.send(post);
     } catch (error) {
       next(new HttpException(error.statusCode || 500, error.message));
