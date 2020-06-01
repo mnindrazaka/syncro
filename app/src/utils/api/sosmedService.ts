@@ -1,11 +1,11 @@
 import { SOSMED_SERVICE_URL } from "react-native-dotenv";
-import { PostRequest, Post } from "../../stores/post/postActions";
+import { PostRequest, Post } from "../../stores/post/postAction";
 import Service from "./service";
 import {
   UserLoginRequest,
   UserRegisterRequest,
   User
-} from "../../stores/user/userActions";
+} from "../../stores/user/userAction";
 
 const baseURL = SOSMED_SERVICE_URL || "";
 const service = new Service(baseURL);

@@ -16,7 +16,7 @@ import {
   deleteErrorAction,
   selectAction,
   clearSelectedAction
-} from "./postActions";
+} from "./postAction";
 
 const usePostAction = () => {
   const storeContext = useStoreContext();

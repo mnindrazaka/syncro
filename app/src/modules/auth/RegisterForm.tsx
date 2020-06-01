@@ -3,7 +3,7 @@ import { View, Alert } from "react-native";
 import { Card, Text, Input, Button, Spinner } from "@ui-kitten/components";
 import { StackScreenProps } from "@react-navigation/stack";
 import { AuthStackParamList } from "./AuthPage";
-import { UserRegisterRequest } from "../../stores/user/userActions";
+import { UserRegisterRequest } from "../../stores/user/userAction";
 import useUserState from "../../stores/user/useUserState";
 import useUserAction from "../../stores/user/useUserAction";
 import sosmedService from "../../utils/api/sosmedService";

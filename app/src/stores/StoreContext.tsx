@@ -1,9 +1,7 @@
 import React from "react";
-import storeStateAndReducers, { StoreState } from "./storeReducers";
-import { userInitialState } from "./user/userReducers";
-import { postInitialState } from "./post/postReducers";
-import { UserLoginResponse } from "./user/userActions";
+import { StoreState, storeReducer, storeInitialState } from "./storeReducers";
 import tokenStorage from "./user/tokenStorage";
+import { loginSuccessAction, UserLoginResponse } from "./user/userAction";
 
 export type Action<T = any> = {
   type: string;
@@ -16,41 +14,28 @@ type StoreContextValue = {
 };
 
 const StoreContext = React.createContext<StoreContextValue>({
-  state: {
-    user: userInitialState,
-    post: postInitialState
-  },
+  state: storeInitialState,
   dispatch: () => {}
 });
 
-export const useStore = (): {
+export const useStoreReducer = (): {
   state: StoreState;
   dispatch: React.Dispatch<Action>;
 } => {
-  const [storeReducers, storeState] = storeStateAndReducers;
-  const [state, dispatch] = React.useReducer(storeReducers, storeState);
-  const [user, setUser] = React.useState<UserLoginResponse>();
-
+  const [state, dispatch] = React.useReducer(storeReducer, storeInitialState);
   React.useEffect(() => {
     (async () => {
-      setUser(await tokenStorage.getUser());
+      const user = (await tokenStorage.getUser()) as UserLoginResponse;
+      dispatch(loginSuccessAction(user));
     })();
   }, []);
-
-  React.useEffect(() => {
-    setUser(state.user.selected);
-  }, [state.user.selected]);
-
-  return {
-    state: { ...state, user: { ...state.user, selected: user } },
-    dispatch
-  };
+  return { state, dispatch };
 };
 
 export const StoreProvider = (props: { children: React.ReactNode }) => {
-  const store = useStore();
+  const storeReducer = useStoreReducer();
   return (
-    <StoreContext.Provider value={{ ...store }}>
+    <StoreContext.Provider value={storeReducer}>
       {props.children}
     </StoreContext.Provider>
   );

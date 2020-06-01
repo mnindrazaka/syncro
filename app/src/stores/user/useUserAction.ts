@@ -12,7 +12,7 @@ import {
   logoutErrorAction,
   UserLoginResponse,
   User
-} from "./userActions";
+} from "./userAction";
 
 const useUserAction = () => {
   const storeContext = useStoreContext();

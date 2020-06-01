@@ -9,7 +9,7 @@ import sosmedService from "../../utils/api/sosmedService";
 import {
   UserLoginRequest,
   UserLoginResponse
-} from "../../stores/user/userActions";
+} from "../../stores/user/userAction";
 import jwtDecode from "jwt-decode";
 import tokenStorage from "../../stores/user/tokenStorage";
 

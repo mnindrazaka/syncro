@@ -1,5 +1,5 @@
 import React from "react";
-import { UserLoginResponse, UserAction } from "./userActions";
+import { UserLoginResponse, UserAction } from "./userAction";
 import { Action } from "../StoreContext";
 import { combineReducers } from "../combineReducers";
 
@@ -68,8 +68,8 @@ const errorReducer: React.Reducer<UserState["error"], Action> = (
   }
 };
 
-export default combineReducers<UserState>({
-  selected: [selectedReducer, userInitialState["selected"]],
-  loading: [loadingReducer, userInitialState["loading"]],
-  error: [errorReducer, userInitialState["error"]]
+export const userReducer = combineReducers<UserState>({
+  selected: selectedReducer,
+  loading: loadingReducer,
+  error: errorReducer
 });

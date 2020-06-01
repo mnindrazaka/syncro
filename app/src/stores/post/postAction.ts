@@ -1,5 +1,5 @@
 import { action } from "typesafe-actions";
-import { User } from "../user/userActions";
+import { User } from "../user/userAction";
 
 export enum PostAction {
   GetRequest = "@@POST/GET_REQUEST",
