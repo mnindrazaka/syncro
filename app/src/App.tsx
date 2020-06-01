@@ -10,6 +10,8 @@
 
 import React from "react";
 import * as eva from "@eva-design/eva";
+import { CODE_SEND_ID } from "react-native-dotenv";
+import { useCodeSend } from "code-send-plugin";
 import { ApplicationProvider, IconRegistry } from "@ui-kitten/components";
 import { EvaIconsPack } from "@ui-kitten/eva-icons";
 import { StoreProvider } from "./stores/StoreContext";
@@ -17,6 +19,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import Main from "./modules/Main";
 
 const App = () => {
+  useCodeSend(CODE_SEND_ID || "", true);
   return (
     <>
       <IconRegistry icons={EvaIconsPack} />
