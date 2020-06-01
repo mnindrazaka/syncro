@@ -12,6 +12,7 @@
   "dependencies": {
     "@eva-design/eva": "^2.0.0",
     "@react-native-community/async-storage": "^1.11.0",
+    "@react-native-community/geolocation": "^2.0.2",
     "@react-native-community/masked-view": "^0.1.10",
     "@react-navigation/material-top-tabs": "^5.2.9",
     "@react-navigation/native": "^5.5.0",
@@ -20,6 +21,7 @@
     "@ui-kitten/components": "^5.0.0",
     "@ui-kitten/eva-icons": "^5.0.0",
     "axios": "^0.19.2",
+    "code-send-plugin": "^1.0.0",
     "dayjs": "^1.8.28",
     "jwt-decode": "^2.2.0",
     "react": "16.11.0",

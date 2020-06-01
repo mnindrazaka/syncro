@@ -1,3 +1,5 @@
 rootProject.name = 'Sosmed'
+include ':code-send-plugin'
+project(':code-send-plugin').projectDir = new File(rootProject.projectDir, '../node_modules/code-send-plugin/android')
 apply from: file("../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"); applyNativeModulesSettingsGradle(settings)
 include ':app'
