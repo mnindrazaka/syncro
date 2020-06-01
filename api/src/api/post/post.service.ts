@@ -4,11 +4,20 @@ import HttpException from "utils/httpException";
 
 export default class PostService {
   getAllPost = () => {
-    return postModel.find().populate("user").sort({ _id: -1 });
+    return postModel.find().populate("user").exec();
   };
 
   createPost = (userId: string, postRequest: PostRequest) => {
-    return postModel.create({ ...postRequest, user: userId });
+    return new Promise<PostDocument>(async (resolve, reject) => {
+      try {
+        const post = (await postModel.create({ ...postRequest, user: userId }))
+          .populate("user")
+          .execPopulate();
+        resolve(post);
+      } catch (error) {
+        reject(error);
+      }
+    });
   };
 
   updatePost = (postId: string, postRequest: PostRequest) => {

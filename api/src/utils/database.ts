@@ -36,7 +36,7 @@ export function clearDB() {
 export async function mockingDatabaseRecord() {
   const passwordHash = await userUtil.hash("mnindrazaka");
   const user = await userModel.create({
-    name: "m. mindra zaka",
+    name: "m. nindra zaka",
     username: "mnindrazaka",
     password: passwordHash
   });
