@@ -4,7 +4,6 @@ import usePostAction from "../../../stores/post/usePostAction";
 import sosmedService from "../../../utils/api/sosmedService";
 import { Alert, View, ScrollView, RefreshControl } from "react-native";
 import PostCard from "./PostCard";
-import { Spinner } from "@ui-kitten/components";
 
 const PostList = () => {
   const postState = usePostState();
@@ -34,7 +33,7 @@ const PostList = () => {
         />
       }
     >
-      {postState.items.map(item => (
+      {postState.items.reverse().map(item => (
         <View style={{ marginBottom: 8 }} key={item._id}>
           <PostCard post={item} />
         </View>
