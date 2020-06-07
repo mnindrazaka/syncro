@@ -19,7 +19,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import Main from "./modules/Main";
 
 const App = () => {
-  useCodeSend(CODE_SEND_ID || "", true);
+  useCodeSend(CODE_SEND_ID || "");
   return (
     <>
       <IconRegistry icons={EvaIconsPack} />
