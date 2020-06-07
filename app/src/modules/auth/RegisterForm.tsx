@@ -64,7 +64,7 @@ const RegisterForm = (props: StackScreenProps<AuthStackParamList>) => {
               onPress={handleRegister}
               disabled={!isFormValid || userState.loading}
             >
-              Register
+              Register Now
             </Button>
             <Text appearance="hint" onPress={handleNavigateToLogin}>
               Already have account ? login now
