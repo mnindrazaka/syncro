@@ -1,4 +1,4 @@
-package com.sosmed;
+package com.akaSosmed;
 
 import com.facebook.react.ReactActivity;
 
