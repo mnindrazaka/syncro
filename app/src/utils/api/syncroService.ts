@@ -1,4 +1,4 @@
-import { SOSMED_SERVICE_URL } from "react-native-dotenv";
+import { SYNCRO_SERVICE_URL } from "react-native-dotenv";
 import { PostRequest, Post } from "../../stores/post/postAction";
 import Service from "./service";
 import {
@@ -7,7 +7,7 @@ import {
   User
 } from "../../stores/user/userAction";
 
-const baseURL = SOSMED_SERVICE_URL || "";
+const baseURL = SYNCRO_SERVICE_URL || "";
 const service = new Service(baseURL);
 
 const login = (user: UserLoginRequest) => {
