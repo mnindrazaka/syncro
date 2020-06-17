@@ -52,8 +52,8 @@ const RegisterForm = (props: StackScreenProps<AuthStackParamList>) => {
       <Card
         header={props => (
           <View {...props}>
-            <Text category="h6">Welcome to Sosmed</Text>
-            <Text category="c1">Please fill form below to join sosmed</Text>
+            <Text category="h6">Welcome to Syncro</Text>
+            <Text category="c1">Please fill form below to join syncro</Text>
           </View>
         )}
         footer={props => (

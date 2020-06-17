@@ -51,7 +51,7 @@ const LoginForm = (props: StackScreenProps<AuthStackParamList>) => {
       <Card
         header={props => (
           <View {...props}>
-            <Text category="h6">Sosmed</Text>
+            <Text category="h6">Syncro</Text>
             <Text category="c1">
               Enter your username and password to continue
             </Text>

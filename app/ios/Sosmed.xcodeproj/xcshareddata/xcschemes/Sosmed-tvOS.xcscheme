@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-               BuildableName = "Sosmed-tvOS.app"
-               BlueprintName = "Sosmed-tvOS"
-               ReferencedContainer = "container:Sosmed.xcodeproj">
+               BuildableName = "Syncro-tvOS.app"
+               BlueprintName = "Syncro-tvOS"
+               ReferencedContainer = "container:Syncro.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2D02E48F1E0B4A5D006451C7"
-               BuildableName = "Sosmed-tvOSTests.xctest"
-               BlueprintName = "Sosmed-tvOSTests"
-               ReferencedContainer = "container:Sosmed.xcodeproj">
+               BuildableName = "Syncro-tvOSTests.xctest"
+               BlueprintName = "Syncro-tvOSTests"
+               ReferencedContainer = "container:Syncro.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,9 +55,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-            BuildableName = "Sosmed-tvOS.app"
-            BlueprintName = "Sosmed-tvOS"
-            ReferencedContainer = "container:Sosmed.xcodeproj">
+            BuildableName = "Syncro-tvOS.app"
+            BlueprintName = "Syncro-tvOS"
+            ReferencedContainer = "container:Syncro.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-            BuildableName = "Sosmed-tvOS.app"
-            BlueprintName = "Sosmed-tvOS"
-            ReferencedContainer = "container:Sosmed.xcodeproj">
+            BuildableName = "Syncro-tvOS.app"
+            BlueprintName = "Syncro-tvOS"
+            ReferencedContainer = "container:Syncro.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

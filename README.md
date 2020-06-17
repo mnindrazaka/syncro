@@ -1,2 +1,2 @@
-# Sosmed
+# Syncro
 Simple social media example
