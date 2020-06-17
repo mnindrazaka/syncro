@@ -1,7 +1,7 @@
 import React from "react";
 import usePostState from "../../../stores/post/usePostState";
 import usePostAction from "../../../stores/post/usePostAction";
-import sosmedService from "../../../utils/api/sosmedService";
+import syncroService from "../../../utils/api/syncroService";
 import { Alert, View, ScrollView, RefreshControl } from "react-native";
 import PostCard from "./PostCard";
 
@@ -12,7 +12,7 @@ const PostList = () => {
   const handleGetPost = React.useCallback(async () => {
     try {
       postAction.getRequest();
-      const posts = await sosmedService.getAllPosts();
+      const posts = await syncroService.getAllPosts();
       postAction.getSuccess(posts);
     } catch (err) {
       postAction.getError(err.message);

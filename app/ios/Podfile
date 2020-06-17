@@ -44,8 +44,8 @@ def flipper_post_install(installer)
   end
 end
 
-target 'Sosmed' do
-  # Pods for Sosmed
+target 'Syncro' do
+  # Pods for Syncro
   pod 'FBLazyVector', :path => "../node_modules/react-native/Libraries/FBLazyVector"
   pod 'FBReactNativeSpec', :path => "../node_modules/react-native/Libraries/FBReactNativeSpec"
   pod 'RCTRequired', :path => "../node_modules/react-native/Libraries/RCTRequired"
@@ -79,7 +79,7 @@ target 'Sosmed' do
 
   pod 'code-send', :path => '../node_modules/code-send-plugin'
 
-  target 'SosmedTests' do
+  target 'SyncroTests' do
     inherit! :complete
     # Pods for testing
   end
@@ -96,10 +96,10 @@ target 'Sosmed' do
   end
 end
 
-target 'Sosmed-tvOS' do
-  # Pods for Sosmed-tvOS
+target 'Syncro-tvOS' do
+  # Pods for Syncro-tvOS
 
-  target 'Sosmed-tvOSTests' do
+  target 'Syncro-tvOSTests' do
     inherit! :search_paths
     # Pods for testing
   end

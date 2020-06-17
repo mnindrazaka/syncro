@@ -5,7 +5,7 @@ import { StackScreenProps } from "@react-navigation/stack";
 import { AuthStackParamList } from "./AuthPage";
 import useUserState from "../../stores/user/useUserState";
 import useUserAction from "../../stores/user/useUserAction";
-import sosmedService from "../../utils/api/sosmedService";
+import syncroService from "../../utils/api/syncroService";
 import {
   UserLoginRequest,
   UserLoginResponse
@@ -36,7 +36,7 @@ const LoginForm = (props: StackScreenProps<AuthStackParamList>) => {
   const handleLogin = React.useCallback(async () => {
     try {
       userAction.loginRequest();
-      const { token } = await sosmedService.login(values);
+      const { token } = await syncroService.login(values);
       await tokenStorage.saveToken(token);
       const user = jwtDecode(token) as UserLoginResponse;
       userAction.loginSuccess(user);
@@ -51,7 +51,7 @@ const LoginForm = (props: StackScreenProps<AuthStackParamList>) => {
       <Card
         header={props => (
           <View {...props}>
-            <Text category="h6">Sosmed</Text>
+            <Text category="h6">Syncro</Text>
             <Text category="c1">
               Enter your username and password to continue
             </Text>

@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "Sosmed.app"
-               BlueprintName = "Sosmed"
-               ReferencedContainer = "container:Sosmed.xcodeproj">
+               BuildableName = "Syncro.app"
+               BlueprintName = "Syncro"
+               ReferencedContainer = "container:Syncro.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "SosmedTests.xctest"
-               BlueprintName = "SosmedTests"
-               ReferencedContainer = "container:Sosmed.xcodeproj">
+               BuildableName = "SyncroTests.xctest"
+               BlueprintName = "SyncroTests"
+               ReferencedContainer = "container:Syncro.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,9 +55,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "Sosmed.app"
-            BlueprintName = "Sosmed"
-            ReferencedContainer = "container:Sosmed.xcodeproj">
+            BuildableName = "Syncro.app"
+            BlueprintName = "Syncro"
+            ReferencedContainer = "container:Syncro.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "Sosmed.app"
-            BlueprintName = "Sosmed"
-            ReferencedContainer = "container:Sosmed.xcodeproj">
+            BuildableName = "Syncro.app"
+            BlueprintName = "Syncro"
+            ReferencedContainer = "container:Syncro.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

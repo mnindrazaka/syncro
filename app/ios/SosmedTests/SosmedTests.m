@@ -7,11 +7,11 @@
 #define TIMEOUT_SECONDS 600
 #define TEXT_TO_LOOK_FOR @"Welcome to React"
 
-@interface SosmedTests : XCTestCase
+@interface SyncroTests : XCTestCase
 
 @end
 
-@implementation SosmedTests
+@implementation SyncroTests
 
 - (BOOL)findSubviewInView:(UIView *)view matching:(BOOL(^)(UIView *view))test
 {

@@ -47,7 +47,7 @@ const LoggedinPage = () => {
           style={{ width: 25, height: 25 }}
         />
         <Text category="h5" style={{ marginLeft: 8 }}>
-          Sosmed
+          Syncro
         </Text>
       </View>
       <Navigator tabBar={props => <TopTabBar {...props} />}>

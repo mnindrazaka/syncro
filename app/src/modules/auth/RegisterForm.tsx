@@ -6,7 +6,7 @@ import { AuthStackParamList } from "./AuthPage";
 import { UserRegisterRequest } from "../../stores/user/userAction";
 import useUserState from "../../stores/user/useUserState";
 import useUserAction from "../../stores/user/useUserAction";
-import sosmedService from "../../utils/api/sosmedService";
+import syncroService from "../../utils/api/syncroService";
 
 const RegisterForm = (props: StackScreenProps<AuthStackParamList>) => {
   const [values, setValues] = React.useState<UserRegisterRequest>({
@@ -34,7 +34,7 @@ const RegisterForm = (props: StackScreenProps<AuthStackParamList>) => {
   const handleRegister = React.useCallback(async () => {
     try {
       userAction.loginRequest();
-      await sosmedService.register(values);
+      await syncroService.register(values);
       userAction.registerSuccess();
       Alert.alert(
         "Register success",
@@ -52,8 +52,8 @@ const RegisterForm = (props: StackScreenProps<AuthStackParamList>) => {
       <Card
         header={props => (
           <View {...props}>
-            <Text category="h6">Welcome to Sosmed</Text>
-            <Text category="c1">Please fill form below to join sosmed</Text>
+            <Text category="h6">Welcome to Syncro</Text>
+            <Text category="c1">Please fill form below to join syncro</Text>
           </View>
         )}
         footer={props => (

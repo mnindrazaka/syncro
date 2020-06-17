@@ -3,7 +3,7 @@ import { Button, Input, Icon, Spinner } from "@ui-kitten/components";
 import { View, Alert } from "react-native";
 import usePostState from "../../../stores/post/usePostState";
 import usePostAction from "../../../stores/post/usePostAction";
-import sosmedService from "../../../utils/api/sosmedService";
+import syncroService from "../../../utils/api/syncroService";
 
 const PostForm = () => {
   const [content, setContent] = React.useState<string>("");
@@ -13,7 +13,7 @@ const PostForm = () => {
   const handleSubmit = React.useCallback(async () => {
     try {
       postAction.createRequest();
-      const post = await sosmedService.createPost({ content });
+      const post = await syncroService.createPost({ content });
       postAction.createSuccess(post);
       setContent("");
     } catch (e) {
