@@ -37,6 +37,7 @@ export type UserRegisterRequest = {
   name: string;
   username: string;
   password: string;
+  passwordConfirmation: string;
 };
 
 export const loginRequestAction = () => {

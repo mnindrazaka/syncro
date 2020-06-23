@@ -12,14 +12,18 @@ const RegisterForm = (props: StackScreenProps<AuthStackParamList>) => {
   const [values, setValues] = React.useState<UserRegisterRequest>({
     name: "",
     username: "",
-    password: ""
+    password: "",
+    passwordConfirmation: ""
   });
   const userState = useUserState();
   const userAction = useUserAction();
 
   const isFormValid = React.useMemo(() => {
     return (
-      values.name.length && values.username.length && values.password.length
+      values.name.length &&
+      values.username.length &&
+      values.password.length &&
+      values.password === values.passwordConfirmation
     );
   }, [values]);
 
@@ -87,6 +91,14 @@ const RegisterForm = (props: StackScreenProps<AuthStackParamList>) => {
           secureTextEntry
           value={values.password}
           onChangeText={value => handleInputChange("password", value)}
+        />
+        <Input
+          label="Password Confirmation"
+          secureTextEntry
+          value={values.passwordConfirmation}
+          onChangeText={value =>
+            handleInputChange("passwordConfirmation", value)
+          }
         />
       </Card>
     </View>

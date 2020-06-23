@@ -15,7 +15,8 @@ const login = (user: UserLoginRequest) => {
 };
 
 const register = (user: UserRegisterRequest) => {
-  return service.post<User>("/user", user);
+  const { passwordConfirmation, ...userRequest } = user;
+  return service.post<User>("/user", userRequest);
 };
 
 const getAllPosts = () => {
