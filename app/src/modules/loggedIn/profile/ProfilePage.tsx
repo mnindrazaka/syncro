@@ -36,18 +36,24 @@ const ProfilePage = () => {
       }}
     >
       <Card
-        footer={props => (
-          <View {...props}>
-            <Button
-              status="danger"
-              onPress={handleLogout}
-              appearance="outline"
-              accessoryLeft={userState.loading ? () => <Spinner /> : undefined}
-            >
-              Logout
-            </Button>
-          </View>
-        )}
+        footer={
+          !route.params?.user
+            ? props => (
+                <View {...props}>
+                  <Button
+                    status="danger"
+                    onPress={handleLogout}
+                    appearance="outline"
+                    accessoryLeft={
+                      userState.loading ? () => <Spinner /> : undefined
+                    }
+                  >
+                    Logout
+                  </Button>
+                </View>
+              )
+            : undefined
+        }
       >
         <View
           style={{
