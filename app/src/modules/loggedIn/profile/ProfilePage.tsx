@@ -4,8 +4,11 @@ import { Button, Icon, Text, Card, Spinner } from "@ui-kitten/components";
 import useUserState from "../../../stores/user/useUserState";
 import useUserAction from "../../../stores/user/useUserAction";
 import tokenStorage from "../../../stores/user/tokenStorage";
+import { useRoute, RouteProp } from "@react-navigation/native";
+import { RootStackParamList } from "../LoggedinPage";
 
 const ProfilePage = () => {
+  const route = useRoute<RouteProp<RootStackParamList, "profile">>();
   const userState = useUserState();
   const userAction = useUserAction();
 
@@ -20,6 +23,10 @@ const ProfilePage = () => {
     }
   }, [userAction]);
 
+  const user = React.useMemo(() => {
+    return route.params?.user ? route.params.user : userState.selected;
+  }, [route, userState]);
+
   return (
     <View
       style={{
@@ -29,18 +36,24 @@ const ProfilePage = () => {
       }}
     >
       <Card
-        footer={props => (
-          <View {...props}>
-            <Button
-              status="danger"
-              onPress={handleLogout}
-              appearance="outline"
-              accessoryLeft={userState.loading ? () => <Spinner /> : undefined}
-            >
-              Logout
-            </Button>
-          </View>
-        )}
+        footer={
+          !route.params?.user
+            ? props => (
+                <View {...props}>
+                  <Button
+                    status="danger"
+                    onPress={handleLogout}
+                    appearance="outline"
+                    accessoryLeft={
+                      userState.loading ? () => <Spinner /> : undefined
+                    }
+                  >
+                    Logout
+                  </Button>
+                </View>
+              )
+            : undefined
+        }
       >
         <View
           style={{
@@ -54,9 +67,9 @@ const ProfilePage = () => {
             style={{ height: 50, width: 50 }}
           />
           <View style={{ marginVertical: 8 }}>
-            <Text category="h6">{userState.selected?.name}</Text>
+            <Text category="h6">{user?.name}</Text>
           </View>
-          <Text appearance="hint">{userState.selected?.username}</Text>
+          <Text appearance="hint">{user?.username}</Text>
         </View>
       </Card>
     </View>

@@ -1,7 +1,7 @@
 import React from "react";
 import PostForm from "./PostForm";
 import PostList from "./PostList";
-import { View, ScrollView } from "react-native";
+import { View } from "react-native";
 
 const PostPage = () => {
   return (

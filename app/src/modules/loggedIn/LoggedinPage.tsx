@@ -17,13 +17,25 @@ import {
 import { View } from "react-native";
 import PostPage from "./post/PostPage";
 import ProfilePage from "./profile/ProfilePage";
+import { User } from "../../stores/user/userAction";
 
-const { Navigator, Screen } = createMaterialTopTabNavigator();
+export type RootStackParamList = {
+  home: undefined;
+  profile: { user: User };
+};
+
+const { Navigator, Screen } = createMaterialTopTabNavigator<
+  RootStackParamList
+>();
 
 const TopTabBar = (props: MaterialTopTabBarProps) => (
   <TabBar
     selectedIndex={props.state.index}
-    onSelect={index => props.navigation.navigate(props.state.routeNames[index])}
+    onSelect={index =>
+      props.navigation.navigate(props.state.routeNames[index], {
+        user: undefined
+      })
+    }
   >
     <Tab icon={props => <Icon name="home-outline" {...props} />} />
     <Tab icon={props => <Icon name="person-outline" {...props} />} />
