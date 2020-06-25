@@ -1,60 +1,21 @@
 import React from "react";
-import { View, Alert } from "react-native";
-import { Button, Icon, Text, Card, Spinner } from "@ui-kitten/components";
-import useUserState from "../../../stores/user/useUserState";
-import useUserAction from "../../../stores/user/useUserAction";
-import tokenStorage from "../../../stores/user/tokenStorage";
+import { View } from "react-native";
+import { Icon, Text, Card } from "@ui-kitten/components";
 import { useRoute, RouteProp } from "@react-navigation/native";
 import { RootStackParamList } from "../LoggedinPage";
+import PostList from "../post/PostList";
 
 const ProfilePage = () => {
   const route = useRoute<RouteProp<RootStackParamList, "profile">>();
-  const userState = useUserState();
-  const userAction = useUserAction();
-
-  const handleLogout = React.useCallback(async () => {
-    try {
-      userAction.logoutRequest();
-      await tokenStorage.removeToken();
-      userAction.logoutSuccess();
-    } catch (error) {
-      userAction.logoutError(error.message);
-      Alert.alert("Logout Failed", error.message);
-    }
-  }, [userAction]);
-
-  const user = React.useMemo(() => {
-    return route.params?.user ? route.params.user : userState.selected;
-  }, [route, userState]);
-
   return (
     <View
       style={{
         flex: 1,
         justifyContent: "center",
-        alignItems: "center"
+        alignItems: "stretch"
       }}
     >
-      <Card
-        footer={
-          !route.params?.user
-            ? props => (
-                <View {...props}>
-                  <Button
-                    status="danger"
-                    onPress={handleLogout}
-                    appearance="outline"
-                    accessoryLeft={
-                      userState.loading ? () => <Spinner /> : undefined
-                    }
-                  >
-                    Logout
-                  </Button>
-                </View>
-              )
-            : undefined
-        }
-      >
+      <Card>
         <View
           style={{
             justifyContent: "center",
@@ -67,11 +28,12 @@ const ProfilePage = () => {
             style={{ height: 50, width: 50 }}
           />
           <View style={{ marginVertical: 8 }}>
-            <Text category="h6">{user?.name}</Text>
+            <Text category="h6">{route.params.user?.name}</Text>
           </View>
-          <Text appearance="hint">{user?.username}</Text>
+          <Text appearance="hint">{route.params.user?.username}</Text>
         </View>
       </Card>
+      <PostList username={route.params.user?.username} />
     </View>
   );
 };

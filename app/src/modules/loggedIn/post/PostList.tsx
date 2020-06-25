@@ -5,7 +5,7 @@ import syncroService from "../../../utils/api/syncroService";
 import { Alert, View, ScrollView, RefreshControl } from "react-native";
 import PostCard from "./PostCard";
 
-const PostList = () => {
+const PostList = (props: { username?: string }) => {
   const postState = usePostState();
   const postAction = usePostAction();
 
@@ -24,6 +24,14 @@ const PostList = () => {
     handleGetPost();
   }, []);
 
+  const posts = React.useMemo(() => {
+    return postState.items
+      .filter(post =>
+        props.username ? post.user.username === props.username : true
+      )
+      .reverse();
+  }, [postState, props.username]);
+
   return (
     <ScrollView
       refreshControl={
@@ -33,9 +41,9 @@ const PostList = () => {
         />
       }
     >
-      {postState.items.reverse().map(item => (
-        <View style={{ marginBottom: 8 }} key={item._id}>
-          <PostCard post={item} />
+      {posts.map(post => (
+        <View style={{ marginBottom: 8 }} key={post._id}>
+          <PostCard post={post} />
         </View>
       ))}
     </ScrollView>
