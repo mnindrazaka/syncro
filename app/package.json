@@ -22,7 +22,7 @@
     "@types/jwt-decode": "^2.2.1",
     "@ui-kitten/components": "^5.0.0",
     "@ui-kitten/eva-icons": "^5.0.0",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "code-send-plugin": "^1.0.6",
     "dayjs": "^1.8.28",
     "jwt-decode": "^2.2.0",
